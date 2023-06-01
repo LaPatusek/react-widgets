@@ -1,9 +1,5 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./styles.css";
-
-const menuHeight = getComputedStyle(document.documentElement).getPropertyValue(
-  "--menu-height"
-);
 
 const buttons = ["Details", "Metrics", "Orders", "Insights"];
 
@@ -13,9 +9,13 @@ export const Widget = () => {
   const toggleMenuBlock = (index) => {
     setActiveBlock(index);
   };
+  
+  const menuHeight = getComputedStyle(document.documentElement).getPropertyValue(
+  "--menu-height"
+);
 
   return (
-    <article className={`card ${isOpen ? "open" : ""}`}>
+    <article className="card">
       <div className="buttons">
         {buttons.map((button, index) => (
           <button
@@ -32,7 +32,7 @@ export const Widget = () => {
           style={{ translate: `0 calc(0px - ${menuHeight} * ${activeBlock})` }}
         >
           <div className="block">
-            <h2>Details</h2>
+            <h2>{buttons[0]}</h2>
             <p>
               Vivamus volutpat ipsum ac ipsum feugiat, vel molestie elit
               vestibulum. Donec luctus commodo dictum. Aenean in turpis erat.
@@ -40,7 +40,7 @@ export const Widget = () => {
             </p>
           </div>
           <div className="block">
-            <h2>Metrics</h2>
+            <h2>{buttons[1]}</h2>
             <p>
               Vivamus volutpat ipsum ac ipsum feugiat, vel molestie elit
               vestibulum. Donec luctus commodo dictum. Aenean in turpis erat.
@@ -48,7 +48,7 @@ export const Widget = () => {
             </p>
           </div>
           <div className="block">
-            <h2>Orders</h2>
+            <h2>{buttons[2]}</h2>
             <p>
               Vivamus volutpat ipsum ac ipsum feugiat, vel molestie elit
               vestibulum. Donec luctus commodo dictum. Aenean in turpis erat.
@@ -56,7 +56,7 @@ export const Widget = () => {
             </p>
           </div>
           <div className="block">
-            <h2>Insights</h2>
+            <h2>{buttons[3]}</h2>
             <p>
               Vivamus volutpat ipsum ac ipsum feugiat, vel molestie elit
               vestibulum. Donec luctus commodo dictum. Aenean in turpis erat.
